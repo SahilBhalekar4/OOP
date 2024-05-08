@@ -1,0 +1,50 @@
+package practice;
+import java.util.*;
+public class employee{
+    private String name ,emp_id,DOB,emailid;
+    String mobno;
+    Scanner sc = new Scanner(System.in);
+    public void getdata(){
+        
+
+        System.out.print("\nEnter Name : ");
+        name = sc.next();
+        System.out.print("Enter Employee ID : ");
+        emp_id = sc.next();
+        System.out.print("Enter DOB (DD/MM/YYYY) : ");
+        DOB = sc.next();
+        //([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$
+        String dob = "(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/((19|20)[0-9][0-9])";
+        while(DOB.matches(dob)!=true){
+            System.out.println("Incorrect..");
+            System.out.print("Enter DOB(dd/mm/yyyy) again : ");
+            DOB = sc.next();
+        }
+        
+
+        System.out.print("Enter Email ID : ");
+        emailid = sc.next();
+        String email = "[a-zA-Z0-9_! #$%&'*+/=?`{|}~^.]+@[a-zA-Z0-9. -]+$";
+        while (emailid.matches(email)!=true) {
+            System.out.println("Enter again : "+sc.next());
+        }
+
+        System.out.println("Enter Mobile no : ");
+        mobno = sc.next();
+        String mob = "(0|91)[6-9]{1}[0-9]{9}";
+        while(mobno.matches(mob)!=true){
+            System.out.println("Incorrect.\nEnter again : ");
+            mobno = sc.next();
+        }
+    
+        
+    }
+
+    public void display(){
+        System.out.println("Name : "+name);
+        System.out.println("Employee Id : "+emp_id);
+        System.out.println("DOB : "+DOB);
+        System.out.println("Email ID : "+emailid);
+        System.out.println("Mobile no. : "+mobno);
+    }
+}

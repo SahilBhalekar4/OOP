@@ -1,0 +1,24 @@
+package practice;
+
+import java.util.Scanner;
+
+public class rectangle extends Shape {
+    private int b;
+    private double area;
+    public void getdata(){
+        
+        System.out.println("Enter Length : ");
+        Scanner sc = null;
+		Object a = sc.nextInt();
+        System.out.println("Enter Breadth : ");
+        b=sc.nextInt();
+
+    }
+    public void compute_area(){
+        int a = 5;
+		area = a*b;
+    }
+    public void display(){
+        System.out.println("Area is : "+area);
+    }
+}

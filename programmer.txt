@@ -1,0 +1,32 @@
+package practice;
+
+public class Programmer1 extends employee{
+    private Double Basicpay,DA,HRA,PF,SCF;
+    private Double Gross,Net;
+    
+
+    public void accept(){
+        
+        
+        System.out.println("Enter Basic Pay : ");
+        Basicpay = sc.nextDouble();
+        DA = 0.97*Basicpay;
+        HRA = 0.10*Basicpay;
+        PF = 0.12*Basicpay;
+        SCF = 0.001*Basicpay;
+        
+    }
+
+    public void computeSalary(){
+        Gross = Basicpay+DA+HRA;
+        Net = Gross-(PF+SCF);
+    }
+
+    public void Salary(){
+        System.out.println("Basic Pay : "+Basicpay);
+        System.out.println("Gross Salary : "+Gross);
+        System.out.println("Net Salary : "+Net);
+    }
+}
+
+

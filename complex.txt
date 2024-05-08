@@ -1,0 +1,25 @@
+package practice;
+
+import java.util.Scanner;
+
+public class ComplexMain {
+    public static void main(String[] args) {
+        int r1,i1,r2,i2;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nEnter real and imaginary of Complex 1 : ");
+        r1=sc.nextInt();
+        i1=sc.nextInt();
+        System.out.println("\nEnter real and imaginary of Complex 2 : ");
+        r2=sc.nextInt();
+        i2=sc.nextInt();
+        Complex c1 = new Complex(r1,i1);
+        Complex c2 = new Complex(r2,i2);
+        Complex c3 = new Complex(i2, i2);
+        // c3.add(c1, c2);
+        // c3.display();
+        c3.mul(c1, c2);
+        c3.display();
+        sc.close();
+    }
+}

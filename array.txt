@@ -1,0 +1,128 @@
+package practice;
+
+import java.util.*;
+
+public class array{
+    public static void main(String[] args) {
+        int ch;
+        Scanner sc= new Scanner(System.in);
+        
+        do{
+            System.out.println("\nSelect the option to perform : ");
+            System.out.println("1. Integer ");
+            System.out.println("2. String ");
+            System.out.println("3. Exit");
+            System.out.print("\nEnter choice : ");
+            ch = sc.nextInt();
+
+            switch (ch) {
+                case 1:
+                    ArrayList<Integer> li = new ArrayList<Integer>();
+                    ArrayList<Integer> evenli = new ArrayList<Integer>();
+                    ArrayList<Integer> oddli = new ArrayList<Integer>();
+                    ArrayList<Integer> prime = new ArrayList<Integer>();
+            
+                    int element,num;
+                    System.out.print("\nEnter number of elements to insert : ");
+                    element = sc.nextInt();
+            
+                    for(int i=0;i<element;i++){
+                        System.out.print("Enter Positive Integer Number to add : ");
+                        num = sc.nextInt();
+                        li.add(num);
+                    }
+                    System.out.println("\nThe List is : ");
+                    System.out.println(li);
+            
+                    
+                    for(int i=0;i<li.size();i++){
+
+                        //Even no.
+                        if(li.get(i)%2==0){
+                            evenli.add(li.get(i));
+                        }
+                        //Odd no.
+                        else{
+                            oddli.add(li.get(i));
+                        }
+                        
+                        // Prime no.
+                        
+                        int flag = 0;
+                        if(li.get(i)==0 || li.get(i)==1){
+                            continue;
+                        }
+                        for (int j=2;j<=Math.sqrt(li.get(i));j++){
+                            if(li.get(i)%j==0){
+                                flag=1;
+                                break;
+                            }
+                        }
+                        if(flag==0){
+                            prime.add(li.get(i));
+                        }
+                    }
+                   
+                    
+                    System.out.print("\nThere are total "+evenli.size()+" even numbers in a list.");
+                    System.out.print("\nEven List is : ");
+                    System.out.println(evenli);
+                    System.out.print("\nThere are total "+oddli.size()+" odd numbers in a list.");
+                    System.out.print("\nOdd List is : ");
+                    System.out.println(oddli);
+                    
+                    System.out.println("\nPrime list is : "+prime);
+                    break;
+            
+                case 2:
+                    String s;
+                    int n;
+                    
+                    ArrayList<String> str = new ArrayList<String>();
+                    ArrayList<String> pal = new ArrayList<String>();
+                    ArrayList<String> notpal = new ArrayList<String>();
+            
+                    System.out.print("\nEnter number of elements : ");
+                    n = sc.nextInt();
+            
+                    for(int i=0;i<n;i++){
+                        System.out.println("\nEnter String : ");
+                        s = sc.next();
+                        str.add(s);
+                    }
+            
+                    System.out.println("\nList of string : "+str);
+            
+                    for(int i=0;i<str.size();i++){
+                        StringBuffer sb = new StringBuffer(str.get(i));
+                        sb.reverse();
+            
+                        if (str.get(i).equals(sb.toString())) {
+                            pal.add(str.get(i));
+                        }
+                        else{
+                            notpal.add(str.get(i));
+                        }
+                    }
+                    
+                    System.out.println("\nPalindrome : "+pal);
+                    System.out.println("Non Palindrome : "+notpal);
+                        
+                    break;
+                case 3:
+                    System.out.println("\nExitted Successfully...");
+                    break;
+                default : System.out.println("\nPlease enter valid optin !!!");
+                
+
+            }
+
+        }while(ch!=3);
+            
+        sc.close();
+            
+            
+
+
+    }
+}

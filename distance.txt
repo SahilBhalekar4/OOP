@@ -1,0 +1,95 @@
+#include <iostream>
+using namespace std;
+
+class feetinch;
+class metercenti{
+    int m,cm;
+    public:
+        metercenti();
+        metercenti(int , int);
+        void display();
+        friend metercenti add(metercenti m , feetinch f);
+        friend feetinch add(feetinch f, metercenti m );
+
+};
+
+class feetinch{
+    int ft,inch;
+    public :
+        feetinch();
+        feetinch(float , float);
+        void show();
+        friend feetinch add(feetinch f,metercenti m);
+        friend metercenti add(metercenti m,feetinch f);
+
+};
+
+ metercenti::metercenti(){
+    m=10;
+    cm=10;
+ }
+ metercenti::metercenti(int meter,int centim){
+    m = meter;
+    cm = centim;
+ }
+
+ feetinch::feetinch(){
+    ft =0.0;
+    inch = 0.0;
+ }
+ feetinch::feetinch(float feet,float in){
+    ft = feet;
+    inch = in;
+ }
+
+ metercenti add(metercenti m , feetinch f){
+    float sum;
+    metercenti temp;
+
+    sum = m.m*100 + m.cm + f.ft*30.48 + f.inch*2.54;
+    int res;
+    res = sum;
+    temp.m = res/100;
+    temp.cm = res%100;
+    return temp;
+ }
+
+ feetinch add(feetinch f,metercenti m){
+    float sum;
+    feetinch temp;
+
+    sum = m.m*39.37 + m.cm*0.394 + f.ft*12 + f.inch;
+    int res;
+    res = sum;
+    temp.ft = res/12;
+    temp.inch = res%12;
+    return temp;
+ }
+
+ void metercenti:: display(){
+    cout<<"\nMeter : "<<m<<"\nCentimeter : "<<cm;
+ }
+
+ void feetinch :: show(){
+    cout<<"Feet : "<<ft<<"\nInch : "<<inch;
+ }
+
+ int main(){
+    int m,cm,ft,in;
+    cout<<"Enter Meter and Centimeter : ";
+    cin>>m>>cm;
+    cout<<"Enter Feet and Inches : ";
+    cin>>ft>>in;
+
+    metercenti m1(m,cm),m2;
+    feetinch f1(ft,in),f2;
+
+    cout<<"\nSum in Meter & Centimeter is : ";
+	m2=add(m1,f1);
+	m2.display();
+	cout<<"\nSum in Feet & Inch is : ";
+	f2=add(f1,m1);
+	f2.show();
+    return 0;
+
+ }
